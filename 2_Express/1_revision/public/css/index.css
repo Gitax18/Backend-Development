@@ -1,0 +1,10 @@
+h1 {
+  font-family: "Courier New", Courier, monospace;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  margin: 2rem;
+}
