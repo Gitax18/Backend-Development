@@ -6,7 +6,7 @@
   "devDependencies": {
     "nodemon": "^3.1.9"
   },
-  "name": "2_express",
+  "name": "2_express-revision",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
