@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  background-color: aquamarine;
+  gap: 1rem;
+  margin: auto;
+  padding: 1rem;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+  padding: 1rem;
+  border-radius: 0.8rem;
+}
+
+.post strong {
+  font-size: 1.2rem;
+}
+
+.post p {
+  font-size: 1.2rem;
+}
+
+.post img {
+  width: 100%;
+}
