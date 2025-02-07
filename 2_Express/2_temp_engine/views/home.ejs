@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PostyMeet</title>
     <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/navigation.css" />
   </head>
   <body>
+    <%- include('includes/navigation.ejs') %>
     <div class="posts">
       <% for( let post of posts ) { %>
       <div class="post">
