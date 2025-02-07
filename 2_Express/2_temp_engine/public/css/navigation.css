@@ -1,0 +1,23 @@
+.navigation {
+  height: 10vh;
+  background-color: rgb(48, 48, 158);
+  display: flex;
+  align-items: center;
+  padding: 0 4rem;
+  margin-bottom: 4rem;
+}
+
+.navigation nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+
+.navigation nav li a {
+  color: #fff;
+  font-size: 1.4rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
