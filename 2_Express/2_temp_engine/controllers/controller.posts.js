@@ -1,25 +1,24 @@
-const posts = [
-  {
-    author: "gitanshu",
-    image: "images/1.jpg",
-    description: "Created a awesome project",
-  },
-  {
-    author: "nehal",
-    image: "images/2.jpg",
-    description: "Just completed another freelance work, balance += $1500",
-  },
-  {
-    author: "aakash",
-    image: "images/3.jpg",
-    description: "Just an image of clean code",
-  },
-];
+const Post = require("../models/model.post");
 
 exports.Home = function Home(req, res) {
+  const posts = Post.fetchAll();
   res.render("home", {
     posts,
   });
+};
+
+exports.AddPost = function AddPost(req, res) {
+  res.render("addpost");
+};
+
+exports.HandlePost = function HandlePost(req, res) {
+  const newPost = new Post(
+    req.body.author,
+    req.body.image,
+    req.body.description
+  );
+  newPost.save();
+  res.redirect("/");
 };
 
 exports.ControlError = function ControlError(req, res) {
