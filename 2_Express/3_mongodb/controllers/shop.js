@@ -30,7 +30,6 @@ exports.getIndex = (req, res, next) => {
 
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
-  console.log("id:", prodId);
   Product.fetchById(prodId)
     .then((product) => {
       res.render("shop/product-detail", {
@@ -56,7 +55,6 @@ exports.getCart = (req, res, next) => {
   req.user
     .getCart()
     .then((cart) => {
-      console.log(cart);
       res.render("shop/cart", {
         path: "/cart",
         pageTitle: "Your Cart",
@@ -66,23 +64,17 @@ exports.getCart = (req, res, next) => {
     .catch((err) => console.error("Error in getCart: ", err));
 };
 
-/*
 exports.postCartDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
   req.user
-    .getCart()
-    .then((cart) => {
-      return cart.getProducts({ where: { id: prodId } });
-    })
-    .then((products) => {
-      const product = products[0];
-      return product.cartItem.destroy();
-    })
-    .then((result) => {
+    .removeFromCart(prodId)
+    .then((rs) => {
       res.redirect("/cart");
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log("Error in postCartDeleteProduct: ", err));
 };
+
+/*
 
 exports.postOrder = (req, res, next) => {
   let fetchedCart;
