@@ -5,12 +5,17 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const session = require("express-session");
+const mongodbSessionStore = require("connect-mongodb-session")(session);
 
 const errorController = require("./controllers/error");
 const User = require("./models/user");
 const Product = require("./models/product");
 
 const app = express();
+const store = new mongodbSessionStore({
+  uri: process.env.MONGODB_CONNECTION,
+  collection: "sessions",
+});
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -26,6 +31,7 @@ app.use(
     secret: "this is a secret key",
     resave: false,
     saveUninitialized: false,
+    store: store,
   })
 );
 
